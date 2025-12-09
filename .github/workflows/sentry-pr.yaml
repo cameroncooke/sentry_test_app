@@ -1,0 +1,36 @@
+name: Sentry PR iOS Upload (Size Analysis Head Build)
+
+on:
+  pull_request:
+    branches: [main]
+    paths: [test/**]
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    defaults:
+      run:
+        working-directory: ./test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_26.0.1.app/Contents/Developer'
+
+      - name: Set up Ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+          working-directory: ./test
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Build & upload to Sentry for size analysis
+        run: bundle exec fastlane ios build_upload_sentry
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_URL: ${{ secrets.SENTRY_URL }}

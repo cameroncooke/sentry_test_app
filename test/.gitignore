@@ -1,0 +1,44 @@
+# Sentry
+.sentryclirc
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods (if used)
+Pods/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+fastlane/README.md
+
+# Code signing (CI artifacts - never commit these!)
+*.p12
+*.mobileprovision
+*.cer
+
+# Ruby/Bundler
+vendor/bundle/
+.bundle/
+
+# Build outputs
+*.ipa
+*.xcarchive
+*.dSYM.zip
+*.app.dSYM
+
+# macOS
+.DS_Store
+*.swp
+*~

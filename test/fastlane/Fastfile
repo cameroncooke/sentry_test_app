@@ -1,0 +1,41 @@
+default_platform(:ios)
+
+# Sentry configuration (set via environment variables)
+SENTRY_URL = ENV['SENTRY_URL'] || 'https://sentry.io/'
+SENTRY_ORG = ENV['SENTRY_ORG'] || 'sentry'
+SENTRY_PROJECT = ENV['SENTRY_PROJECT'] || 'test-ios-project'
+
+platform :ios do
+  desc 'Build and upload to Sentry for size analysis'
+  lane :build_upload_sentry do
+    # Build xcarchive only (no IPA export, no code signing needed for size analysis)
+    build_ios_app(
+      scheme: "test",
+      project: "test.xcodeproj",
+      configuration: "Release",
+      destination: "generic/platform=iOS",
+      skip_package_ipa: true,
+      skip_codesigning: true,
+      archive_path: "./build/test.xcarchive",
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGN_ENTITLEMENTS=''"
+    )
+
+    # Upload dSYMs to Sentry for symbolication
+    sentry_debug_files_upload(
+      url: SENTRY_URL,
+      auth_token: ENV['SENTRY_AUTH_TOKEN'],
+      org_slug: SENTRY_ORG,
+      project_slug: SENTRY_PROJECT,
+      include_sources: true
+    )
+
+    # Upload xcarchive to Sentry for size analysis
+    sentry_upload_build(
+      url: SENTRY_URL,
+      auth_token: ENV['SENTRY_AUTH_TOKEN'],
+      org_slug: SENTRY_ORG,
+      project_slug: SENTRY_PROJECT,
+      build_configuration: 'Release'
+    )
+  end
+end
