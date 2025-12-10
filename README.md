@@ -1,4 +1,4 @@
-# Sentry Test Repository
+# Sentry Test App
 
 A test iOS project for end-to-end testing of [Sentry's Size Analysis](https://docs.sentry.io/product/size-analysis/) feature and GitHub status checks integration.
 
