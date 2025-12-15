@@ -1,9 +1,9 @@
-name: Sentry Main iOS Upload (Size Analysis Base Build)
+name: Sentry PR iOS Upload (Size Analysis Head Build)
 
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths: [test/**]
+    paths: [ios/**]
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./test
+        working-directory: ./ios
 
     steps:
       - name: Checkout
@@ -25,13 +25,12 @@ jobs:
       - name: Set up Ruby env
         uses: ruby/setup-ruby@v1
         with:
-          working-directory: ./test
+          working-directory: ./ios
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Build & upload base build to Sentry for size analysis
+      - name: Build & upload to Sentry for size analysis
         run: bundle exec fastlane ios build_upload_sentry
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_URL: ${{ secrets.SENTRY_URL }}
-
