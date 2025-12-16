@@ -1,0 +1,39 @@
+name: Sentry Main Android Upload (Size Analysis Base Build)
+
+on:
+  push:
+    branches: [main]
+    paths: [android/**]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./android
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+          working-directory: ./android
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Build & upload base build to Sentry for size analysis
+        run: bundle exec fastlane android build_upload_sentry
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_URL: ${{ secrets.SENTRY_URL }}
