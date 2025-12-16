@@ -8,12 +8,11 @@
 import SwiftUI
 import Sentry
 
-
 @main
 struct testApp: App {
     init() {
         SentrySDK.start { options in
-            options.dsn = "https://7257e7f4c81d3e1353e2fc47ae80ffcb@cameroncooke.ngrok.io/4"
+            options.dsn = "https://bbba1b31de2a8020a9febe3ebe2604dd@cameroncooke.ngrok.io/1"
 
             // Adds IP for users.
             // For more information, visit: https://docs.sentry.io/platforms/apple/data-management/data-collected/

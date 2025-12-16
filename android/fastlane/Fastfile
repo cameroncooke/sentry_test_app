@@ -1,0 +1,16 @@
+default_platform(:android)
+
+platform :android do
+  desc 'Build and upload to Sentry for size analysis'
+  lane :build_upload_sentry do
+    # Build the app bundle
+    # The Sentry Gradle plugin automatically handles:
+    # - Size analysis upload (when GITHUB_ACTIONS is set)
+    # - Debug symbol upload
+    # - Source context upload
+    gradle(
+      task: "bundle",
+      build_type: "release"
+    )
+  end
+end
