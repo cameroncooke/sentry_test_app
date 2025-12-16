@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    id("io.sentry.android.gradle") version "5.12.2"
+    id("io.sentry.android.gradle") version "6.0.0-beta.2"
 }
 
 android {
@@ -62,10 +62,18 @@ dependencies {
 }
 
 sentry {
+    // Custom Sentry URL (for self-hosted or ngrok)
+    url.set(providers.environmentVariable("SENTRY_URL").getOrElse("https://sentry.io/"))
+
     org.set("sentry")
     projectName.set("internal")
 
     // this will upload your source code to Sentry to show it as part of the stack traces
     // disable if you don't want to expose your sources
     includeSourceContext.set(true)
+
+    // Enable size analysis in CI environment
+    sizeAnalysis {
+        enabled.set(providers.environmentVariable("GITHUB_ACTIONS").isPresent)
+    }
 }

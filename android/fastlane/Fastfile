@@ -1,35 +1,16 @@
 default_platform(:android)
 
-# Sentry configuration (set via environment variables)
-SENTRY_URL = ENV['SENTRY_URL'] || 'https://sentry.io/'
-SENTRY_ORG = ENV['SENTRY_ORG'] || 'sentry'
-SENTRY_PROJECT = ENV['SENTRY_PROJECT'] || 'internal'
-
 platform :android do
   desc 'Build and upload to Sentry for size analysis'
   lane :build_upload_sentry do
-    # Build the app bundle for size analysis
+    # Build the app bundle
+    # The Sentry Gradle plugin automatically handles:
+    # - Size analysis upload (when GITHUB_ACTIONS is set)
+    # - Debug symbol upload
+    # - Source context upload
     gradle(
       task: "bundle",
       build_type: "release"
-    )
-
-    # Upload proguard mapping files to Sentry for symbolication
-    sentry_debug_files_upload(
-      url: SENTRY_URL,
-      auth_token: ENV['SENTRY_AUTH_TOKEN'],
-      org_slug: SENTRY_ORG,
-      project_slug: SENTRY_PROJECT,
-      include_sources: true
-    )
-
-    # Upload app bundle to Sentry for size analysis
-    sentry_upload_build(
-      url: SENTRY_URL,
-      auth_token: ENV['SENTRY_AUTH_TOKEN'],
-      org_slug: SENTRY_ORG,
-      project_slug: SENTRY_PROJECT,
-      build_configuration: 'release'
     )
   end
 end
