@@ -3,7 +3,7 @@ default_platform(:ios)
 # Sentry configuration (set via environment variables)
 SENTRY_URL = ENV['SENTRY_URL'] || 'https://sentry.io/'
 SENTRY_ORG = ENV['SENTRY_ORG'] || 'sentry'
-SENTRY_PROJECT = ENV['SENTRY_PROJECT'] || 'test-ios-project'
+SENTRY_PROJECT = ENV['SENTRY_PROJECT'] || 'internal'
 
 platform :ios do
   desc 'Build and upload to Sentry for size analysis'
