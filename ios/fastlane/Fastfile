@@ -20,22 +20,30 @@ platform :ios do
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGN_ENTITLEMENTS=''"
     )
 
-    # Upload dSYMs to Sentry for symbolication
-    sentry_debug_files_upload(
-      url: SENTRY_URL,
-      auth_token: ENV['SENTRY_AUTH_TOKEN'],
-      org_slug: SENTRY_ORG,
-      project_slug: SENTRY_PROJECT,
-      include_sources: true
-    )
+    # Upload dSYMs to Sentry for symbolication (do not fail build on upload issues)
+    begin
+      sentry_debug_files_upload(
+        url: SENTRY_URL,
+        auth_token: ENV['SENTRY_AUTH_TOKEN'],
+        org_slug: SENTRY_ORG,
+        project_slug: SENTRY_PROJECT,
+        include_sources: true
+      )
+    rescue => e
+      UI.important("Non-blocking Sentry dSYM upload failure: #{e}")
+    end
 
-    # Upload xcarchive to Sentry for size analysis
-    sentry_upload_build(
-      url: SENTRY_URL,
-      auth_token: ENV['SENTRY_AUTH_TOKEN'],
-      org_slug: SENTRY_ORG,
-      project_slug: SENTRY_PROJECT,
-      build_configuration: 'Release'
-    )
+    # Upload xcarchive to Sentry for size analysis (do not fail build on upload issues)
+    begin
+      sentry_upload_build(
+        url: SENTRY_URL,
+        auth_token: ENV['SENTRY_AUTH_TOKEN'],
+        org_slug: SENTRY_ORG,
+        project_slug: SENTRY_PROJECT,
+        build_configuration: 'Release'
+      )
+    rescue => e
+      UI.important("Non-blocking Sentry build upload failure: #{e}")
+    end
   end
 end
