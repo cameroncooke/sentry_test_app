@@ -22,6 +22,9 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -s '/Applications/Xcode_26.0.1.app/Contents/Developer'
 
+      - name: Install watchOS platform
+        run: xcodebuild -downloadPlatform watchOS
+
       - name: Set up Ruby env
         uses: ruby/setup-ruby@v1
         with:

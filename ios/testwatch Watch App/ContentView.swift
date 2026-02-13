@@ -9,30 +9,31 @@ struct ContentView: View {
                 if viewModel.isLoading && viewModel.stories.isEmpty {
                     HStack {
                         Spacer()
-                        ProgressView("Loading feed...")
+                        ProgressView()
                         Spacer()
                     }
                 }
 
                 if let errorMessage = viewModel.errorMessage, viewModel.stories.isEmpty {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Couldn't load Hacker News")
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Couldn't load feed")
                             .font(.headline)
                         Text(errorMessage)
-                            .font(.caption)
+                            .font(.caption2)
                             .foregroundStyle(.secondary)
+                            .lineLimit(3)
                     }
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 2)
                 }
 
                 ForEach(viewModel.stories) { story in
                     Link(destination: story.destinationURL) {
-                        VStack(alignment: .leading, spacing: 4) {
+                        VStack(alignment: .leading, spacing: 3) {
                             Text(story.title)
                                 .font(.headline)
                                 .lineLimit(3)
-                            Text("\(story.score) points - \(story.by)")
-                                .font(.caption)
+                            Text("\(story.score) pts")
+                                .font(.caption2)
                                 .foregroundStyle(.secondary)
                         }
                         .padding(.vertical, 2)
@@ -40,7 +41,7 @@ struct ContentView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .navigationTitle("Hacker News")
+            .navigationTitle("HN")
             .task {
                 await viewModel.loadIfNeeded()
             }
@@ -54,7 +55,6 @@ struct ContentView: View {
 private struct HackerNewsStory: Identifiable, Decodable {
     let id: Int
     let title: String
-    let by: String
     let score: Int
     let url: String?
 
@@ -86,7 +86,7 @@ private final class HackerNewsFeedViewModel {
         errorMessage = nil
 
         do {
-            stories = try await service.fetchTopStories(limit: 25)
+            stories = try await service.fetchTopStories(limit: 15)
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -119,7 +119,6 @@ private struct HackerNewsService {
                 }
             }
 
-            // Preserve HN ordering after concurrent fetches.
             let indexLookup = Dictionary(uniqueKeysWithValues: selectedIDs.enumerated().map { ($0.element, $0.offset) })
             return fetched.sorted {
                 (indexLookup[$0.id] ?? .max) < (indexLookup[$1.id] ?? .max)

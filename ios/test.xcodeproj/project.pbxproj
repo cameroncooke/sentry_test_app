@@ -8,10 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		7968E16F170540C6822C8266 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 59DAA30B5470481EB78129EA /* Sentry */; };
+		8BF51E002F3F515200780996 /* testwatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8BF51DF62F3F515100780996 /* testwatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BF51DFE2F3F515200780996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BE8E51D2EE88CCF009DE600 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BF51DF52F3F515100780996;
+			remoteInfo = "testwatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8BF51E012F3F515200780996 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				8BF51E002F3F515200780996 /* testwatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8BE8E5252EE88CCF009DE600 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF51DF62F3F515100780996 /* testwatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "testwatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +59,11 @@
 			path = test;
 			sourceTree = "<group>";
 		};
+		8BF51DF72F3F515100780996 /* testwatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "testwatch Watch App";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BF51DF32F3F515100780996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE8E5272EE88CCF009DE600 /* test */,
+				8BF51DF72F3F515100780996 /* testwatch Watch App */,
 				8BE8E5262EE88CCF009DE600 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE8E5252EE88CCF009DE600 /* test.app */,
+				8BF51DF62F3F515100780996 /* testwatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,10 +114,12 @@
 				8BE8E5222EE88CCF009DE600 /* Frameworks */,
 				8BE8E5232EE88CCF009DE600 /* Resources */,
 				625D2F7115E94592BD5C2118 /* Upload Debug Symbols to Sentry */,
+				8BF51E012F3F515200780996 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8BF51DFF2F3F515200780996 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				8BE8E5272EE88CCF009DE600 /* test */,
@@ -88,6 +130,28 @@
 			);
 			productName = test;
 			productReference = 8BE8E5252EE88CCF009DE600 /* test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BF51DF52F3F515100780996 /* testwatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF51E042F3F515200780996 /* Build configuration list for PBXNativeTarget "testwatch Watch App" */;
+			buildPhases = (
+				8BF51DF22F3F515100780996 /* Sources */,
+				8BF51DF32F3F515100780996 /* Frameworks */,
+				8BF51DF42F3F515100780996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8BF51DF72F3F515100780996 /* testwatch Watch App */,
+			);
+			name = "testwatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "testwatch Watch App";
+			productReference = 8BF51DF62F3F515100780996 /* testwatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,6 +165,9 @@
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					8BE8E5242EE88CCF009DE600 = {
+						CreatedOnToolsVersion = 26.1.1;
+					};
+					8BF51DF52F3F515100780996 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
@@ -123,12 +190,20 @@
 			projectRoot = "";
 			targets = (
 				8BE8E5242EE88CCF009DE600 /* test */,
+				8BF51DF52F3F515100780996 /* testwatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8BE8E5232EE88CCF009DE600 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF51DF42F3F515100780996 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -148,18 +223,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script is responsible for uploading debug symbols and source context for Sentry.
-if which sentry-cli >/dev/null; then
-  export SENTRY_ORG=sentry
-  export SENTRY_PROJECT=internal
-  ERROR=$(sentry-cli debug-files upload --include-sources \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)
-  if [ ! $? -eq 0 ]; then
-    echo \"warning: sentry-cli - $ERROR\"
-  fi
-else
-  echo \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"
-fi
-";
+			shellScript = "# This script is responsible for uploading debug symbols and source context for Sentry.\nif which sentry-cli >/dev/null; then\n  export SENTRY_ORG=sentry\n  export SENTRY_PROJECT=internal\n  ERROR=$(sentry-cli debug-files upload --include-sources \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\n  if [ ! $? -eq 0 ]; then\n    echo \"warning: sentry-cli - $ERROR\"\n  fi\nelse\n  echo \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -171,7 +235,22 @@ fi
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BF51DF22F3F515100780996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BF51DFF2F3F515200780996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BF51DF52F3F515100780996 /* testwatch Watch App */;
+			targetProxy = 8BF51DFE2F3F515200780996 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8BE8E52E2EE88CD1009DE600 /* Debug */ = {
@@ -302,7 +381,7 @@ fi
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = "NO";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = test/Info.plist;
@@ -349,7 +428,7 @@ fi
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = "NO";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = test/Info.plist;
@@ -384,6 +463,73 @@ fi
 			};
 			name = Release;
 		};
+		8BF51E022F3F515200780996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BR6WD3M6ZD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = testwatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cameroncooke.test;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cameroncooke.test.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		8BF51E032F3F515200780996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BR6WD3M6ZD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = testwatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cameroncooke.test;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cameroncooke.test.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -401,6 +547,15 @@ fi
 			buildConfigurations = (
 				8BE8E5312EE88CD1009DE600 /* Debug */,
 				8BE8E5322EE88CD1009DE600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BF51E042F3F515200780996 /* Build configuration list for PBXNativeTarget "testwatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF51E022F3F515200780996 /* Debug */,
+				8BF51E032F3F515200780996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
