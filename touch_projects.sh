@@ -21,3 +21,9 @@ EOF
 echo "Updated both projects with timestamp: $TIMESTAMP"
 echo "  - android/README.md"
 echo "  - ios/README.md"
+
+git add -A
+git commit -m "Bump" --no-verify
+git push
+
+echo "Pushed changes."
