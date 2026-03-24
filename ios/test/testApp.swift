@@ -12,7 +12,7 @@ import Sentry
 struct testApp: App {
     init() {
         SentrySDK.start { options in
-            options.dsn = "https://bbba1b31de2a8020a9febe3ebe2604dd@cameroncooke.ngrok.io/1"
+            options.dsn = "https://f121691ab3efd9f1da5b0709db40436e@cameroncooke.ngrok.io/1"
 
             // Adds IP for users.
             // For more information, visit: https://docs.sentry.io/platforms/apple/data-management/data-collected/
@@ -28,8 +28,8 @@ struct testApp: App {
                 $0.lifecycle = .trace
             }
 
-             options.attachScreenshot = true // This adds a screenshot to the error events
-             options.attachViewHierarchy = true // This adds the view hierarchy to the error events
+            options.attachScreenshot = true // This adds a screenshot to the error events
+            options.attachViewHierarchy = true // This adds the view hierarchy to the error events
 
             // Enable logs
             options.enableLogs = true
