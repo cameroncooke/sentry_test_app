@@ -60,46 +60,59 @@ struct FeaturedProductCard: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             LinearGradient(
-                colors: [Color.coffeeEspresso, Color.coffeeAccent],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
+                colors: [Color.coffeeEspresso, Color.coffeeAccent, Color.coffeeAccent.opacity(0.7)],
+                startPoint: .top,
+                endPoint: .bottom
             )
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
 
             Image(systemName: product.imageSymbol)
-                .font(.system(size: 180))
-                .foregroundStyle(.white.opacity(0.10))
-                .offset(x: 60, y: -30)
+                .font(.system(size: 220))
+                .foregroundStyle(.white.opacity(0.14))
+                .rotationEffect(.degrees(-12))
+                .offset(x: 90, y: 10)
 
-            VStack(alignment: .leading, spacing: 10) {
-                Text("FEATURED")
-                    .font(.caption.weight(.heavy))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
-                    .background(Capsule().fill(.white.opacity(0.2)))
-                    .foregroundStyle(.white)
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 8) {
+                    Text("FEATURED")
+                        .font(.caption.weight(.heavy))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(Capsule().fill(.white.opacity(0.22)))
+                        .foregroundStyle(.white)
+                    Label(product.origin, systemImage: "globe")
+                        .font(.caption.weight(.semibold))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(Capsule().fill(.white.opacity(0.22)))
+                        .foregroundStyle(.white)
+                }
                 Text(product.name)
-                    .font(.title2.bold())
+                    .font(.title.bold())
                     .foregroundStyle(.white)
                 Text(product.tastingNotes.joined(separator: " · "))
                     .font(.subheadline)
-                    .foregroundStyle(.white.opacity(0.85))
+                    .foregroundStyle(.white.opacity(0.9))
                 HStack {
                     Text(product.price)
-                        .font(.title3.bold().monospacedDigit())
+                        .font(.title2.bold().monospacedDigit())
                         .foregroundStyle(.white)
                     Spacer()
-                    Text("Shop now")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(Color.coffeeEspresso)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(Capsule().fill(.white))
+                    HStack(spacing: 6) {
+                        Text("Shop now")
+                            .font(.subheadline.weight(.semibold))
+                        Image(systemName: "arrow.right")
+                            .font(.subheadline.weight(.semibold))
+                    }
+                    .foregroundStyle(Color.coffeeEspresso)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Capsule().fill(.white))
                 }
             }
-            .padding(20)
+            .padding(22)
         }
-        .frame(height: 220)
+        .frame(height: 240)
     }
 }
 
