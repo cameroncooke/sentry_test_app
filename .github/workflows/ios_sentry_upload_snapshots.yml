@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-    paths: [ios/**, .github/workflows/ios*, .github/scripts/**]
+    paths: [ios/**, .github/workflows/ios*]
 
 defaults:
   run:
@@ -38,11 +38,9 @@ jobs:
       - name: Set up Ruby env
         uses: ruby/setup-ruby@v1
         with:
+          working-directory: ./ios
           ruby-version: 3.3.10
           bundler-cache: true
-
-      - name: Setup gems
-        run: exec ../.github/scripts/setup.sh
 
       - name: Prepare DerivedData directory
         run: mkdir -p "${DERIVED_DATA_PATH}"
@@ -71,7 +69,7 @@ jobs:
             COMPILATION_CACHING=YES \
             EAGER_LINKING=YES \
             FUSE_BUILD_SCRIPT_PHASES=YES \
-            | xcpretty
+            | bundle exec xcpretty
 
       - name: Normalize xctestrun path
         run: |
@@ -128,11 +126,9 @@ jobs:
       - name: Set up Ruby env
         uses: ruby/setup-ruby@v1
         with:
+          working-directory: ./ios
           ruby-version: 3.3.10
           bundler-cache: true
-
-      - name: Setup gems
-        run: exec ../.github/scripts/setup.sh
 
       - name: Download build products artifact
         uses: actions/download-artifact@v5
@@ -157,7 +153,7 @@ jobs:
             -xctestrun "${DERIVED_DATA_PATH}/Build/Products/${XCTESTRUN_FILENAME}" \
             -destination 'platform=iOS Simulator,name=${{ matrix.simulator_name }},arch=arm64' \
             -resultBundlePath "../SnapshotResults-${{ matrix.slug }}.xcresult" \
-            | xcpretty
+            | bundle exec xcpretty
 
       - name: Upload snapshots artifacts
         uses: actions/upload-artifact@v7
@@ -181,11 +177,9 @@ jobs:
       - name: Set up Ruby env
         uses: ruby/setup-ruby@v1
         with:
+          working-directory: ./ios
           ruby-version: 3.3.10
           bundler-cache: true
-
-      - name: Setup gems
-        run: exec ../.github/scripts/setup.sh
 
       - name: Download generated snapshots
         uses: actions/download-artifact@v5

@@ -31,7 +31,7 @@
     {
       "identity" : "snapshotpreviews",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:EmergeTools/SnapshotPreviews.git",
+      "location" : "https://github.com/EmergeTools/SnapshotPreviews.git",
       "state" : {
         "branch" : "main",
         "revision" : "d42446f0439217941a4e3a2ca58a643c1ac328c4"
