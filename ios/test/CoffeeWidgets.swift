@@ -141,50 +141,73 @@ struct RatingSummaryWidget: View {
     let distribution: [Int]  // 5 stars first → 1 star
 
     var body: some View {
-        HStack(alignment: .top, spacing: 20) {
-            VStack(spacing: 4) {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .lastTextBaseline, spacing: 10) {
                 Text(String(format: "%.1f", average))
-                    .font(.system(size: 44, weight: .heavy))
-                    .foregroundStyle(Color.coffeeEspresso)
-                HStack(spacing: 2) {
-                    ForEach(0..<5, id: \.self) { i in
-                        Image(systemName: Double(i) < average ? "star.fill" : "star")
-                            .font(.caption)
-                            .foregroundStyle(.yellow)
+                    .font(.system(size: 64, weight: .black, design: .rounded))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [Color.coffeeEspresso, Color.coffeeAccent],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 2) {
+                        ForEach(0..<5, id: \.self) { i in
+                            Image(systemName: Double(i) < average ? "star.fill" : "star")
+                                .font(.subheadline)
+                                .foregroundStyle(.yellow)
+                        }
                     }
+                    Text("Based on \(total) reviews")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-                Text("\(total) reviews")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                Spacer()
             }
-            VStack(spacing: 6) {
+
+            VStack(spacing: 8) {
                 ForEach(0..<5, id: \.self) { i in
                     let count = distribution[i]
                     let pct = total > 0 ? Double(count) / Double(total) : 0
-                    HStack(spacing: 8) {
-                        Text("\(5 - i)")
-                            .font(.caption.monospacedDigit())
-                            .frame(width: 12)
+                    HStack(spacing: 10) {
+                        HStack(spacing: 2) {
+                            Text("\(5 - i)")
+                                .font(.caption.weight(.semibold).monospacedDigit())
+                            Image(systemName: "star.fill")
+                                .font(.caption2)
+                                .foregroundStyle(.yellow)
+                        }
+                        .frame(width: 28, alignment: .leading)
+
                         GeometryReader { geo in
                             ZStack(alignment: .leading) {
-                                Capsule().fill(Color(.systemGray5))
+                                Capsule().fill(Color(.systemGray6))
                                 Capsule()
-                                    .fill(Color.coffeeAccent)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.coffeeAccent, Color.coffeeEspresso],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
                                     .frame(width: geo.size.width * pct)
                             }
                         }
-                        .frame(height: 8)
-                        Text("\(count)")
-                            .font(.caption.monospacedDigit())
+                        .frame(height: 10)
+
+                        Text(String(format: "%.0f%%", pct * 100))
+                            .font(.caption.weight(.medium).monospacedDigit())
                             .foregroundStyle(.secondary)
-                            .frame(width: 32, alignment: .trailing)
+                            .frame(width: 40, alignment: .trailing)
                     }
                 }
             }
         }
-        .padding(16)
+        .padding(18)
         .background(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .fill(Color(.secondarySystemBackground))
         )
     }

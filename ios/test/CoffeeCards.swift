@@ -23,7 +23,7 @@ struct LoyaltyCard: View {
                     .foregroundStyle(.white.opacity(0.9))
             }
 
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Text("\(stars) / \(totalStars) stars")
                         .font(.subheadline.weight(.semibold))
@@ -41,7 +41,14 @@ struct LoyaltyCard: View {
                             .frame(width: geo.size.width * progress)
                     }
                 }
-                .frame(height: 10)
+                .frame(height: 14)
+                HStack(spacing: 4) {
+                    ForEach(0..<min(totalStars, 12), id: \.self) { i in
+                        Image(systemName: i < stars ? "star.fill" : "star")
+                            .font(.caption2)
+                            .foregroundStyle(.white.opacity(i < stars ? 1.0 : 0.45))
+                    }
+                }
             }
         }
         .padding(20)

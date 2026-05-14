@@ -47,10 +47,10 @@ struct DiscountBadge: View {
         Text("-\(percentOff)%")
             .font(.caption.weight(.heavy))
             .foregroundStyle(.white)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
             .background(
-                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(Color.red)
             )
     }
@@ -61,9 +61,9 @@ struct StockPill: View {
 
     var body: some View {
         HStack(spacing: 6) {
-            Circle()
-                .fill(status.color)
-                .frame(width: 8, height: 8)
+            Image(systemName: statusSymbol)
+                .font(.caption2.weight(.bold))
+                .foregroundStyle(status.color)
             Text(status.label)
                 .font(.caption.weight(.medium))
                 .foregroundStyle(.primary)
@@ -71,8 +71,17 @@ struct StockPill: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .background(
-            Capsule().fill(status.color.opacity(0.12))
+            Capsule().fill(status.color.opacity(0.14))
         )
+    }
+
+    private var statusSymbol: String {
+        switch status {
+        case .inStock: return "checkmark.circle.fill"
+        case .lowStock: return "exclamationmark.triangle.fill"
+        case .outOfStock: return "xmark.circle.fill"
+        case .preorder: return "calendar.badge.clock"
+        }
     }
 }
 
