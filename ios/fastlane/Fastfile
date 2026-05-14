@@ -45,5 +45,16 @@ platform :ios do
     rescue => e
       UI.important("Non-blocking Sentry build upload failure: #{e}")
     end
+
+    desc 'Upload SnapshotPreviews snapshots to Sentry'
+    lane :upload_sentry_snapshots do |options|
+      sentry_upload_snapshots(
+        path: options[:path],
+        app_id: 'com.cameroncooke.test',
+        auth_token: ENV['SENTRY_AUTH_TOKEN'],
+        org_slug: 'sentry',
+        project_slug: 'internal'
+      )
+    end
   end
 end
