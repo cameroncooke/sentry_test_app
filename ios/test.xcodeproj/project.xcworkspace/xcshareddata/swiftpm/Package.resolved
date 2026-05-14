@@ -1,13 +1,40 @@
 {
-  "originHash" : "5fdfe48001ec9270f523296bb07696c525da68412b4311316766541057fcdc34",
+  "originHash" : "f331d4e110d34a511f8789c7b59738de63928f1abd835fcb8f2d06da5d5feea6",
   "pins" : [
+    {
+      "identity" : "flyingfox",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swhitty/FlyingFox.git",
+      "state" : {
+        "revision" : "f7829d4aca8cbfecb410a1cce872b1b045224aa1",
+        "version" : "0.16.0"
+      }
+    },
     {
       "identity" : "sentry-cocoa",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa/",
       "state" : {
-        "revision" : "8627bbc0e663238d516b541d8fc7edd62a627fde",
-        "version" : "8.57.3"
+        "revision" : "64c9c5cc401aefde0eda46a9192b36082533a79d",
+        "version" : "9.13.0"
+      }
+    },
+    {
+      "identity" : "simpledebugger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EmergeTools/SimpleDebugger.git",
+      "state" : {
+        "revision" : "f065263eb5db95874b690408d136b573c939db9e",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "snapshotpreviews",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:EmergeTools/SnapshotPreviews.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d42446f0439217941a4e3a2ca58a643c1ac328c4"
       }
     }
   ],

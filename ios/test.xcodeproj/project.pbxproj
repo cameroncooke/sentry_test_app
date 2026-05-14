@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		7968E16F170540C6822C8266 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 59DAA30B5470481EB78129EA /* Sentry */; };
+		8B363D2A2FB5CBD40075C59C /* SnapshottingTests in Frameworks */ = {isa = PBXBuildFile; productRef = 8B363D292FB5CBD40075C59C /* SnapshottingTests */; };
 		8BF51E002F3F515200780996 /* testwatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8BF51DF62F3F515100780996 /* testwatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8B68D15B2FB5CB2200780EAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BE8E51D2EE88CCF009DE600 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BE8E5242EE88CCF009DE600;
+			remoteInfo = test;
+		};
 		8BF51DFE2F3F515200780996 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BE8E51D2EE88CCF009DE600 /* Project object */;
@@ -22,6 +30,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8B6F350C2F473CC500BBD0F9 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF51E012F3F515200780996 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B68D1572FB5CB2200780EAE /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE8E5252EE88CCF009DE600 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF51DF62F3F515100780996 /* testwatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "testwatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -51,6 +70,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8B68D1582FB5CB2200780EAE /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		8BE8E5272EE88CCF009DE600 /* test */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -67,6 +91,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8B68D1542FB5CB2200780EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B363D2A2FB5CBD40075C59C /* SnapshottingTests in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BE8E5222EE88CCF009DE600 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,11 +117,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B363D282FB5CBD40075C59C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BE8E51C2EE88CCF009DE600 = {
 			isa = PBXGroup;
 			children = (
 				8BE8E5272EE88CCF009DE600 /* test */,
 				8BF51DF72F3F515100780996 /* testwatch Watch App */,
+				8B68D1582FB5CB2200780EAE /* Tests */,
+				8B363D282FB5CBD40075C59C /* Frameworks */,
 				8BE8E5262EE88CCF009DE600 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +140,7 @@
 			children = (
 				8BE8E5252EE88CCF009DE600 /* test.app */,
 				8BF51DF62F3F515100780996 /* testwatch Watch App.app */,
+				8B68D1572FB5CB2200780EAE /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +148,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8B68D1562FB5CB2200780EAE /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B68D15D2FB5CB2200780EAE /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				8B68D1532FB5CB2200780EAE /* Sources */,
+				8B68D1542FB5CB2200780EAE /* Frameworks */,
+				8B68D1552FB5CB2200780EAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B68D15C2FB5CB2200780EAE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8B68D1582FB5CB2200780EAE /* Tests */,
+			);
+			name = Tests;
+			packageProductDependencies = (
+				8B363D292FB5CBD40075C59C /* SnapshottingTests */,
+			);
+			productName = Tests;
+			productReference = 8B68D1572FB5CB2200780EAE /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8BE8E5242EE88CCF009DE600 /* test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BE8E5302EE88CD1009DE600 /* Build configuration list for PBXNativeTarget "test" */;
@@ -115,6 +181,7 @@
 				8BE8E5232EE88CCF009DE600 /* Resources */,
 				625D2F7115E94592BD5C2118 /* Upload Debug Symbols to Sentry */,
 				8BF51E012F3F515200780996 /* Embed Watch Content */,
+				8B6F350C2F473CC500BBD0F9 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
@@ -161,9 +228,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
+					8B68D1562FB5CB2200780EAE = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 8BE8E5242EE88CCF009DE600;
+					};
 					8BE8E5242EE88CCF009DE600 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
@@ -183,6 +254,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FC00F89C77D94F42926B0918 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				8B68D1602FB5CB7200780EAE /* XCRemoteSwiftPackageReference "SnapshotPreviews" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8BE8E5262EE88CCF009DE600 /* Products */;
@@ -191,11 +263,19 @@
 			targets = (
 				8BE8E5242EE88CCF009DE600 /* test */,
 				8BF51DF52F3F515100780996 /* testwatch Watch App */,
+				8B68D1562FB5CB2200780EAE /* Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8B68D1552FB5CB2200780EAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BE8E5232EE88CCF009DE600 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +298,8 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
 			name = "Upload Debug Symbols to Sentry";
 			outputPaths = (
 			);
@@ -228,6 +310,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8B68D1532FB5CB2200780EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BE8E5212EE88CCF009DE600 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +334,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8B68D15C2FB5CB2200780EAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BE8E5242EE88CCF009DE600 /* test */;
+			targetProxy = 8B68D15B2FB5CB2200780EAE /* PBXContainerItemProxy */;
+		};
 		8BF51DFF2F3F515200780996 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8BF51DF52F3F515100780996 /* testwatch Watch App */;
@@ -253,6 +347,53 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8B68D15E2FB5CB2200780EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BR6WD3M6ZD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/test";
+			};
+			name = Debug;
+		};
+		8B68D15F2FB5CB2200780EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BR6WD3M6ZD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/test";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		8BE8E52E2EE88CD1009DE600 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -287,6 +428,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = BR6WD3M6ZD;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -310,6 +452,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -349,6 +492,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BR6WD3M6ZD;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -365,6 +509,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -376,6 +521,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BR6WD3M6ZD;
 				ENABLE_APP_SANDBOX = YES;
@@ -423,6 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BR6WD3M6ZD;
 				ENABLE_APP_SANDBOX = YES;
@@ -475,6 +622,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = testwatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKApplication = YES;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cameroncooke.test;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,6 +656,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = testwatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKApplication = YES;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cameroncooke.test;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,6 +682,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8B68D15D2FB5CB2200780EAE /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B68D15E2FB5CB2200780EAE /* Debug */,
+				8B68D15F2FB5CB2200780EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8BE8E5202EE88CCF009DE600 /* Build configuration list for PBXProject "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -563,13 +721,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B68D1602FB5CB7200780EAE /* XCRemoteSwiftPackageReference "SnapshotPreviews" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:EmergeTools/SnapshotPreviews.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FC00F89C77D94F42926B0918 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
+				minimumVersion = 9.0.0;
 			};
+			traits = (
+			);
 		};
 /* End XCRemoteSwiftPackageReference section */
 
@@ -578,6 +746,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FC00F89C77D94F42926B0918 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = Sentry;
+		};
+		8B363D292FB5CBD40075C59C /* SnapshottingTests */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B68D1602FB5CB7200780EAE /* XCRemoteSwiftPackageReference "SnapshotPreviews" */;
+			productName = SnapshottingTests;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -28,12 +28,11 @@ struct testApp: App {
                 $0.lifecycle = .trace
             }
 
-            // Uncomment the following lines to add more data to your events
-            // options.attachScreenshot = true // This adds a screenshot to the error events
-            // options.attachViewHierarchy = true // This adds the view hierarchy to the error events
-            
-            // Enable experimental logging features
-            options.experimental.enableLogs = true
+             options.attachScreenshot = true // This adds a screenshot to the error events
+             options.attachViewHierarchy = true // This adds the view hierarchy to the error events
+
+            // Enable logs
+            options.enableLogs = true
         }
     }
     var body: some Scene {
