@@ -58,7 +58,6 @@ jobs:
         run: |
           set -o pipefail && xcodebuild build-for-testing \
             -scheme test \
-            -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max,arch=arm64' \
             -resultBundlePath ../SnapshotBuildForTesting.xcresult \
             -derivedDataPath "${DERIVED_DATA_PATH}" \
